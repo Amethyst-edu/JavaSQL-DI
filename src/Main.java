@@ -31,7 +31,7 @@ public class Main {
     public static void registro(Scanner scanner, boolean usingdb) {
         boolean on = true;
         while (on) {
-            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Realizar pedido\n3 - Adicionar produto\n > ");
+            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Ver lista de clientes\n3 - Adicionar produto\n > ");
             int opcao = scanner.nextInt();
             scanner.nextLine(); 
             switch (opcao) {
@@ -45,18 +45,18 @@ public class Main {
                 }
                 case 2 -> {
                     if (usingdb) {
-                        PedidoDAO.realizarPedido(scanner); // preciso do modelo logico para criar a entidade aq 
-                    } else {
-                        Pedido.realizarPedido(scanner);
-                    }
+                        ClienteDAO.clienteCheck(scanner); 
+                    }// else {
+                    //     ClienteLocal.clienteCheck(scanner);
+                    // }
                 }
-                case 3 -> {
-                    if (usingdb) {
-                        ProdutoDAO.adicionarProduto(scanner); // preciso do modelo logico para criar a entidade aq
-                    } else {
-                        Produto.adicionarProduto(scanner);
-                    }
-                }
+                // case 3 -> {
+                //     if (usingdb) {
+                //         ProdutoDAO.adicionarProduto(scanner); // preciso do modelo logico para criar a entidade aq
+                //     } else {
+                //         Produto.adicionarProduto(scanner);
+                //     }
+                // }
             }
            
         }

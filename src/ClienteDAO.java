@@ -1,9 +1,12 @@
 package src;
 
+// usados por clienteCad
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+// usados por clienteCheck
 import java.sql.ResultSet;
 
 public class ClienteDAO {
@@ -35,6 +38,26 @@ public class ClienteDAO {
                 } else {
                     System.out.println("Falha ao cadastrar cliente.");
                 }
+        } catch (SQLException e) {
+            System.out.println("Erro ao acessar o banco de dados: " + e.getMessage());
+        }
+    }
+
+    public static void clienteCheck(Scanner scanner) {
+        String query = "SELECT id, nome, email FROM clientes";
+        try (Connection conn = Conexao.getConn();
+        PreparedStatement stmt = conn.prepareStatement(query);
+        ResultSet rs = stmt.executeQuery()) {
+
+            System.out.println("\nLista de Clientes:");
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                String email = rs.getString("email");
+                ClienteEntity cliente = new ClienteEntity(id, nome, email);
+                System.out.println("\nID: " + cliente.getId() + "\nNome: " + cliente.getNome() + "\nEmail: " + cliente.getEmail());
+            }
         } catch (SQLException e) {
             System.out.println("Erro ao acessar o banco de dados: " + e.getMessage());
         }
