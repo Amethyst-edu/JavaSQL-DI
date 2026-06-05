@@ -38,9 +38,9 @@ public class Main {
                 case 0 ->  {on = false; System.out.println("Encerrando programa...");}
                 case 1 -> {
                     if (usingdb) {
-                        ClienteDAO.cadastrarCliente(scanner);
+                        ClienteDAO.clienteCad(scanner);
                     } else {
-                        Cliente.cadastrarCliente(scanner);
+                        ClienteLocal.clienteCad(scanner);
                     }
                 }
                 case 2 -> {
