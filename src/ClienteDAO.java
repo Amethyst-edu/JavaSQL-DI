@@ -1,12 +1,9 @@
 package src;
 
-// usados por clienteCad
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
-
-// usados por clienteCheck
 import java.sql.ResultSet;
 
 public class ClienteDAO {

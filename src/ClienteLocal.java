@@ -30,4 +30,16 @@ public class ClienteLocal {
     nextId++;
     System.out.println("Cliente cadastrado com sucesso! ID: " + nextCliente.getId());
     }
+
+    public static void clienteCheck(Scanner scanner) {
+        if (clientes.isEmpty()) {
+            System.out.println("\nNenhum cliente cadastrado.");
+        } else {
+            System.out.println("\nLista de Clientes:");
+            for (int i = 0; i < clientes.size(); i++) {
+                ClienteEntity cliente = clientes.get(i);
+                System.out.println("\nID: " + cliente.getId() + "\nNome: " + cliente.getNome() + "\nEmail: " + cliente.getEmail());
+            }
+        }
+    }    
 }
