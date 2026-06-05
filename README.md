@@ -1,5 +1,5 @@
 # Instruções de Compilação, Configuração e Execução
----
+
 ### 1. Configuração do Banco de Dados Local (XAMPP)
 
 - Certifique-se de que o servidor MySQL do XAMPP foi criado e está ativo.
@@ -34,4 +34,3 @@ java -cp ".;lib/*" src.Main
 ```
 java -cp ".:lib/*" src.Main
 ```
----
