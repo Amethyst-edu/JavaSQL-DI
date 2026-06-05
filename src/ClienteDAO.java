@@ -23,5 +23,20 @@ public class ClienteDAO {
             System.out.println("Nome e/ou email inválidos. Cadastro cancelado.");
             return;
         }
+
+        String insert = "INSERT INTO clientes (nome, email) VALUES (?, ?)";
+        try (Connection conn = Conexao.getConn();
+        PreparedStatement stmt = conn.prepareStatement(insert)) {
+                stmt.setString(1, nome);
+                stmt.setString(2, email);
+                int changed = stmt.executeUpdate();
+                if (changed > 0) {
+                    System.out.println("Cliente cadastrado com sucesso!");
+                } else {
+                    System.out.println("Falha ao cadastrar cliente.");
+                }
+        } catch (SQLException e) {
+            System.out.println("Erro ao acessar o banco de dados: " + e.getMessage());
+        }
     }
 }
