@@ -1,13 +1,65 @@
 package src;
 
 import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        try (Connection conn = Conexao.conectar()) {System.out.println("Conexão aberta: " + conn);}
-         catch (SQLException e) {e.printStackTrace(); System.out.println("erro de conexao");}
-
-        Jsql.atualizar();
+    Scanner scanner = new Scanner(System.in);
+        boolean usingdb = false;
+        try (Connection conn = Conexao.getConn()) {
+            System.out.println("Conexão sucedida: " + conn);
+            usingdb = true;
+            registro(scanner, usingdb);
+        }
+         catch (Exception e) {
+            System.out.println("ERRO DE CONEXÃO");
+            System.out.println("Deseja processar os dados localmente para avaliar a POO? (s/n)");
+            char resposta = scanner.nextLine().charAt(0);
+            if (resposta == 's' || resposta == 'S') {
+                System.out.println("Processando dados sem conexão...");
+                registro(scanner, usingdb);
+            } else if(resposta == 'n' || resposta == 'N') { // agora para negar tem que começar com N, nao qualquer texto
+                System.out.println(e.getMessage());
+                System.err.println("\nTambém foi encontrado erro(s):");
+                e.printStackTrace();
+            }
+        }
+        scanner.close();
     }
+
+    public static void registro(Scanner scanner, boolean usingdb) {
+        boolean on = true;
+        while (on) {
+            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Realizar pedido\n3 - Adicionar produto\n > ");
+            int opcao = scanner.nextInt();
+            scanner.nextLine(); 
+            switch (opcao) {
+                // case 0 ->  {on = false; System.out.println("Encerrando programa...");}
+                // case 1 -> {
+                //     if (usingdb) {
+                //         ClienteDAO.cadastrarCliente(scanner);
+                //     } else {
+                //         Cliente.cadastrarCliente(scanner);
+                //     }
+                // }
+                // case 2 -> {
+                //     if (usingdb) {
+                //         PedidoDAO.realizarPedido(scanner);
+                //     } else {
+                //         Pedido.realizarPedido(scanner);
+                //     }
+                // }
+                // case 3 -> {
+                //     if (usingdb) {
+                //         ProdutoDAO.adicionarProduto(scanner);
+                //     } else {
+                //         Produto.adicionarProduto(scanner);
+                //     }
+                // }
+            }
+           
+        }
+    }
+
 }

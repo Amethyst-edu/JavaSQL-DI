@@ -1,48 +1,21 @@
 package src;
 
-import java.util.Properties; // leem e interpretam o db.properties
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.IOException;
-
-import java.sql.Connection; // fazem a conexao
+import java.sql.Connection; 
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-    private static final String PROPERTIES_FILE = "db.properties";
-    private static final Properties CONFIG = loadProperties();
-
-    private static Properties loadProperties() {
-        Properties props = new Properties();
-        try (InputStream in = new FileInputStream(PROPERTIES_FILE)) {
-            props.load(in);
-        } catch (IOException e) {
-            throw new ExceptionInInitializerError("Não foi possível carregar " + PROPERTIES_FILE + ": " + e.getMessage());
+    public static Connection getConn() {
+        try {
+            String url = "jdbc:mysql://localhost:3306/defaultdb";
+            String user = "root";
+            String password = "";
+            return DriverManager.getConnection(url, user, password); // Alterem de acordo com as configurações de vcs :D
+        } 
+        catch (SQLException e) {
+            throw new RuntimeException("Erro ao conectar ao banco de dados: " + e.getMessage());
         }
-        return props;
-    }
-
-    private static String getConfig(String key) {
-        String envKey = key.toUpperCase().replace('.', '_');
-        String envValue = System.getenv(envKey);
-        if (envValue != null && !envValue.isBlank()) {
-            return envValue;
-        }
-        return CONFIG.getProperty(key);
-    }
-
-    public static Connection conectar() throws SQLException {
-        String url = String.format(
-            "jdbc:mysql://%s:%s/%s?sslmode=REQUIRED",
-            getConfig("db.host"),
-            getConfig("db.port"),
-            getConfig("db.database")
-        );
-        String user = getConfig("db.user");
-        String pass = getConfig("db.password");
-        return DriverManager.getConnection(url, user, pass);
     }
 }
 
-// A classe Conexao é responsável por estabelecer a conexão com o banco de dados MySQL.
+// A classe Conexao é responsável por estabelecer a conexão com o banco de dados MySQL. O método getConn() utiliza o DriverManager para obter uma conexão com o banco de dados, utilizando a URL, o nome de usuário e a senha fornecidos. Se ocorrer um erro durante a conexão, uma RuntimeException é lançada com uma mensagem de erro detalhada.
