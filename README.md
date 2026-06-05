@@ -14,8 +14,7 @@
 
 - Utilize a [query](.sql) na schema para criar a base de dados. A schema deve ser chamada `defaultdb` para corresponder à configuração da classe Conexao. Caso queira utilizar outro nome, atualize o final da URL de conexão no código.
 
-- **AVISO**: O sistema não é compatível com SQLite, sem um um servidor MySQL local ou no caso de falha na conexão, o sistema perguntará se deseja utilizar variáveis do próprio código para simular a conexão, permitindo o teste das funcionalidades de POO (menus, entidades e lógica de negócio) mesmo sem um banco de dados ativo, o que elimina a necessidade de um ambiente de banco de dados apenas para avaliar a POO. Porém, o console exibirá o aviso `ERRO DE CONEXÃO` por não ser o meio recomendado.
----
+- **AVISO**: O sistema não é compatível com SQLite, sem um um servidor MySQL local ou no caso de falha na conexão, o sistema perguntará se deseja utilizar variáveis do próprio código para simular a conexão, permitindo o teste das funcionalidades de POO (menus, entidades e lógica de negócio) mesmo sem um banco de dados ativo, o que elimina a necessidade de um ambiente de banco de dados apenas para avaliar a POO.(Em desenvolvimento)
 
 ### 2. Compilação E Execução (Terminal da IDE)
 
