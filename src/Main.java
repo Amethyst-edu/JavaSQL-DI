@@ -35,28 +35,28 @@ public class Main {
             int opcao = scanner.nextInt();
             scanner.nextLine(); 
             switch (opcao) {
-                // case 0 ->  {on = false; System.out.println("Encerrando programa...");}
-                // case 1 -> {
-                //     if (usingdb) {
-                //         ClienteDAO.cadastrarCliente(scanner);
-                //     } else {
-                //         Cliente.cadastrarCliente(scanner);
-                //     }
-                // }
-                // case 2 -> {
-                //     if (usingdb) {
-                //         PedidoDAO.realizarPedido(scanner);
-                //     } else {
-                //         Pedido.realizarPedido(scanner);
-                //     }
-                // }
-                // case 3 -> {
-                //     if (usingdb) {
-                //         ProdutoDAO.adicionarProduto(scanner);
-                //     } else {
-                //         Produto.adicionarProduto(scanner);
-                //     }
-                // }
+                case 0 ->  {on = false; System.out.println("Encerrando programa...");}
+                case 1 -> {
+                    if (usingdb) {
+                        ClienteDAO.cadastrarCliente(scanner);
+                    } else {
+                        Cliente.cadastrarCliente(scanner);
+                    }
+                }
+                case 2 -> {
+                    if (usingdb) {
+                        PedidoDAO.realizarPedido(scanner); // preciso do modelo logico para criar a entidade aq 
+                    } else {
+                        Pedido.realizarPedido(scanner);
+                    }
+                }
+                case 3 -> {
+                    if (usingdb) {
+                        ProdutoDAO.adicionarProduto(scanner); // preciso do modelo logico para criar a entidade aq
+                    } else {
+                        Produto.adicionarProduto(scanner);
+                    }
+                }
             }
            
         }
