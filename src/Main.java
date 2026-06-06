@@ -36,7 +36,7 @@ public class Main {
     public static void registro(Scanner scanner, boolean usingdb) {
         boolean on = true;
         while (on) {
-            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Ver lista de clientes\n3 - Adicionar produto\n>> ");
+            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Ver lista de clientes\n3 - Adicionar produto\n4 - Ver todos os produtos\n>> ");
             int opcao = scanner.nextInt();
             scanner.nextLine(); 
             switch (opcao) {
@@ -55,6 +55,21 @@ public class Main {
                         ClienteLocal.clienteCheck(scanner);
                     }
                 }
+                case 3 -> {
+                    if (usingdb) {
+                        ProdutoDAO.ProdutoCad(scanner);
+                    } else {
+                        //ProdutoLocal.ProdutoCad(scanner);
+                    }
+                }
+                case 4 -> {
+                    if (usingdb) {
+                        ProdutoDAO.ProdutoCheck(scanner);
+                    } else {
+                        //ProdutoLocal.ProdutoCheck(scanner);
+                    }
+                }
+                default -> System.out.println("Opção inválida. Tente novamente.");
             }
            
         }
