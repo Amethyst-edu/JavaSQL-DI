@@ -12,7 +12,7 @@
 
 - Se a conexão local utiliza uma porta diferente de 3306, possua uma senha definida para o usuário root ou tem outra configuração padrão, é necessário ajustar manualmente as variáveis `url`, `user` e `password` no método `getConn()` dentro de [Conexão.java](src/Conexao.java) antes de compilar.
 
-- Utilize a [query](.sql) na schema para criar a base de dados. A schema deve ser chamada `defaultdb` para corresponder à configuração da classe Conexao. Caso queira utilizar outro nome, atualize o final da URL de conexão no código.
+- Utilize a [query](DDL.sql) na schema para criar a base de dados. A schema deve ser chamada `defaultdb` para corresponder à configuração da classe Conexao. Caso queira utilizar outro nome, atualize o final da URL de conexão no código.
 
 - **AVISO**: O sistema não é compatível com SQLite, sem um um servidor MySQL local ou no caso de falha na conexão, o sistema perguntará se deseja utilizar variáveis do próprio código para simular a conexão, permitindo o teste das funcionalidades de POO (menus, entidades e lógica de negócio) mesmo sem um banco de dados ativo, o que elimina a necessidade de um ambiente de banco de dados apenas para avaliar a POO. Porém, o console exibirá o aviso `ERRO DE CONEXÃO` por não ser o meio recomendado.
 ---

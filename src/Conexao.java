@@ -7,10 +7,10 @@ import java.sql.SQLException;
 public class Conexao {
     public static Connection getConn() {
         try {
-            String url = "jdbc:mysql://localhost:3306/defaultdb";
+            String url = "jdbc:mysql://localhost:3306/sistema_pedidos";
             String user = "root";
             String password = "";
-            return DriverManager.getConnection(url, user, password); // Alterem de acordo com as configurações de vcs :D
+            return DriverManager.getConnection(url, user, password); // Profs, alterem as strings de acordo com as configurações de vcs :D
         } 
         catch (SQLException e) {
             throw new RuntimeException("Erro ao conectar ao banco de dados: " + e.getMessage());
