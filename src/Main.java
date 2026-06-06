@@ -19,7 +19,7 @@ public class Main {
             if (resposta == 's' || resposta == 'S') {
                 System.out.println("Processando dados sem conexão...");
                 registro(scanner, usingdb);
-            } else if(resposta == 'n' || resposta == 'N') { // agora para negar tem que começar com N, nao qualquer texto
+            } else if(resposta == 'n' || resposta == 'N') { 
                 System.out.println(e.getMessage());
                 System.err.println("\nTambém foi encontrado erro(s):");
                 e.printStackTrace();
@@ -31,7 +31,7 @@ public class Main {
     public static void registro(Scanner scanner, boolean usingdb) {
         boolean on = true;
         while (on) {
-            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Ver lista de clientes\n3 - Adicionar produto\n > ");
+            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Ver lista de clientes\n3 - Adicionar produto\n>> ");
             int opcao = scanner.nextInt();
             scanner.nextLine(); 
             switch (opcao) {
@@ -46,9 +46,9 @@ public class Main {
                 case 2 -> {
                     if (usingdb) {
                         ClienteDAO.clienteCheck(scanner); 
-                    }// else {
-                    //     ClienteLocal.clienteCheck(scanner);
-                    // }
+                    } else {
+                        ClienteLocal.clienteCheck(scanner);
+                    }
                 }
                 // case 3 -> {
                 //     if (usingdb) {
