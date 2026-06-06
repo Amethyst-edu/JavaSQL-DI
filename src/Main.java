@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import src.persistenciaDB.ClienteDAO;
 import src.persistenciaLocal.ClienteLocal;
+import src.persistenciaDB.ProdutoDAO;
+import src.persistenciaLocal.ProdutoLocal;
 
 public class Main {
     public static void main(String[] args) {
@@ -53,13 +55,6 @@ public class Main {
                         ClienteLocal.clienteCheck(scanner);
                     }
                 }
-                // case 3 -> {
-                //     if (usingdb) {
-                //         ProdutoDAO.adicionarProduto(scanner); // preciso do modelo logico para criar a entidade aq
-                //     } else {
-                //         Produto.adicionarProduto(scanner);
-                //     }
-                // }
             }
            
         }
