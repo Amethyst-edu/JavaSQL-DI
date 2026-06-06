@@ -1,8 +1,10 @@
-package src;
+package src.persistenciaLocal;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import src.entities.ClienteEntity;
 
 public class ClienteLocal {
     private static final List<ClienteEntity> clientes = new ArrayList<>();

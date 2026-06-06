@@ -1,9 +1,13 @@
-package src;
+package src.persistenciaDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import src.Conexao;
+import src.entities.ClienteEntity;
+
 import java.sql.ResultSet;
 
 public class ClienteDAO {
