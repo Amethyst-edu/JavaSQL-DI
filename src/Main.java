@@ -3,10 +3,8 @@ package src;
 import java.sql.Connection;
 import java.util.Scanner;
 
-import src.persistenciaDB.ClienteDAO;
-import src.persistenciaLocal.ClienteLocal;
-import src.persistenciaDB.ProdutoDAO;
-import src.persistenciaLocal.ProdutoLocal;
+import src.persistenciaDB.*;
+import src.persistenciaLocal.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,7 +34,7 @@ public class Main {
     public static void registro(Scanner scanner, boolean usingdb) {
         boolean on = true;
         while (on) {
-            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Ver lista de clientes\n3 - Adicionar produto\n4 - Ver todos os produtos\n>> ");
+            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Ver lista de clientes\n3 - Adicionar produto\n4 - Ver todos os produtos\n5 - Novo pedido\n6 - Ver histórico de pedidos\n>> ");
             int opcao = scanner.nextInt();
             scanner.nextLine(); 
             switch (opcao) {
@@ -59,14 +57,28 @@ public class Main {
                     if (usingdb) {
                         ProdutoDAO.ProdutoCad(scanner);
                     } else {
-                        //ProdutoLocal.ProdutoCad(scanner);
+                        ProdutoLocal.ProdutoCad(scanner);
                     }
                 }
                 case 4 -> {
                     if (usingdb) {
                         ProdutoDAO.ProdutoCheck(scanner);
                     } else {
-                        //ProdutoLocal.ProdutoCheck(scanner);
+                        ProdutoLocal.ProdutoCheck(scanner);
+                    }
+                }
+                case 5 -> {
+                    if (usingdb) {
+                        //PedidoDAO.PedidoCad(scanner);
+                    } else {
+                        //PedidoLocal.PedidoCad(scanner);
+                    }
+                }
+                case 6 -> {
+                    if (usingdb) {
+                        //PedidoDAO.PedidoCheck(scanner);
+                    } else {
+                        //PedidoLocal.PedidoCheck(scanner);
                     }
                 }
                 default -> System.out.println("Opção inválida. Tente novamente.");
