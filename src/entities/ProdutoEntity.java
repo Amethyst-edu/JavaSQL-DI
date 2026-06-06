@@ -1,4 +1,4 @@
-package src.entites;
+package src.entities;
 
 public class ProdutoEntity {
     private final int id;
@@ -19,6 +19,6 @@ public class ProdutoEntity {
     public int getId() {return id;}
     public String getNome() {return nome;}
     public double getPreco() {return preco;}
-    public int getQuantidadeEstoque() {return emEstoque;}
+    public int getemEstoque() {return emEstoque;}
     public categoria getCategoria() {return categoria;}
 }

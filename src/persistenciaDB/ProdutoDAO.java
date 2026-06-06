@@ -1,6 +1,6 @@
 package src.persistenciaDB;
-import src.entites.ProdutoEntity;
 import src.Conexao;
+import src.entities.ProdutoEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

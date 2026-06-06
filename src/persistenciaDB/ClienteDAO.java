@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import src.Conexao;
-import src.entites.ClienteEntity;
+import src.entities.ClienteEntity;
 
 import java.sql.ResultSet;
 

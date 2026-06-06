@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import src.entites.ClienteEntity;
+import src.entities.ClienteEntity;
 
 public class ClienteLocal {
     private static final List<ClienteEntity> clientes = new ArrayList<>();
