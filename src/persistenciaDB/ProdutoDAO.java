@@ -77,7 +77,7 @@ public class ProdutoDAO {
                 String categoriaStr = rs.getString("categoria");
                 ProdutoEntity.categoria categoria = ProdutoEntity.categoria.valueOf(categoriaStr);
                 ProdutoEntity produto = new ProdutoEntity(id, nome, preco, emEstoque, categoria);
-                System.out.println("\nID: " + produto.getId() + "\nNome: " + produto.getNome() + "\nPreço: " + produto.getPreco() + "\nEm Estoque: " + produto.getQuantidadeEstoque() + "\nCategoria: " + produto.getCategoria());
+                System.out.println("\nID: " + produto.getId() + "\nNome: " + produto.getNome() + "\nPreço: " + produto.getPreco() + "\nEm Estoque: " + produto.getemEstoque() + "\nCategoria: " + produto.getCategoria());
             }
             if (!has) {
                 System.out.println("\nNão há produtos.");
