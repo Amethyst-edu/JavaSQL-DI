@@ -1,4 +1,4 @@
-package src;
+package src.entites;
 
 public class ProdutoEntity {
     private final int id;

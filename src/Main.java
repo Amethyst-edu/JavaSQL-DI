@@ -3,6 +3,9 @@ package src;
 import java.sql.Connection;
 import java.util.Scanner;
 
+import src.persistenciaDB.ClienteDAO;
+import src.persistenciaLocal.ClienteLocal;
+
 public class Main {
     public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
