@@ -60,7 +60,7 @@ public class ProdutoDAO {
     }
 
     public static void ProdutoCheck(Scanner scanner) {
-        String query = "SELECT id, nome, preco, em_estoque, categoria FROM produtos";
+        String query = "SELECT id, nome, preco, quantidade_estoque, categoria FROM produtos";
         try (Connection conn = Conexao.getConn();
              PreparedStatement stmt = conn.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
