@@ -41,7 +41,7 @@ public class ProdutoDAO {
             return;
         }
 
-        String insert = "INSERT INTO produtos (nome, preco, em_estoque, categoria) VALUES (?, ?, ?, ?)";
+        String insert = "INSERT INTO produtos (nome, preco, quantidade_estoque, categoria) VALUES (?, ?, ?, ?)";
         try (Connection conn = Conexao.getConn();
              PreparedStatement stmt = conn.prepareStatement(insert)) {
             stmt.setString(1, nome);

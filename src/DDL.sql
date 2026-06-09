@@ -14,7 +14,7 @@ CREATE TABLE produtos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     preco DECIMAL(10,2) NOT NULL,
-    quantidade_estoque INT NOT NULL,
+    quantidade_estoque INT NOT NULL,                                -- correção nesta coluna específica
     categoria ENUM('ALIMENTOS', 'ELETRONICOS', 'LIVROS') NOT NULL 
 );
 
