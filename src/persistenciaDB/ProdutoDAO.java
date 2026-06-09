@@ -60,7 +60,7 @@ public class ProdutoDAO {
     }
 
     public static void ProdutoCheck(Scanner scanner) {
-        String query = "SELECT id, nome, preco, em_estoque, categoria FROM produtos";
+        String query = "SELECT id, nome, preco, quantidade_estoque, categoria FROM produtos";
         try (Connection conn = Conexao.getConn();
              PreparedStatement stmt = conn.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
@@ -73,7 +73,7 @@ public class ProdutoDAO {
                 int id = rs.getInt("id");
                 String nome = rs.getString("nome");
                 double preco = rs.getDouble("preco");
-                int emEstoque = rs.getInt("em_estoque");
+                int emEstoque = rs.getInt("quantidade_estoque");
                 String categoriaStr = rs.getString("categoria");
                 ProdutoEntity.categoria categoria = ProdutoEntity.categoria.valueOf(categoriaStr);
                 ProdutoEntity produto = new ProdutoEntity(id, nome, preco, emEstoque, categoria);
