@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import src.entities.ItemEntity;
 import src.entities.PedidoEntity;
@@ -73,6 +75,29 @@ public class PedidoDAO {
             } catch (SQLException e) {
                 System.out.println("Erro ao restaurar auto-commit: " + e.getMessage());
             }
+        }
+    }
+
+    public static List<Integer> buscarPedidosEmFila(Connection conn) throws SQLException {
+        List<Integer> listaIds = new ArrayList<>();
+        String sql = "SELECT id FROM pedidos WHERE status = 'FILA'";
+        
+            try (PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    listaIds.add(rs.getInt("id"));
+                }
+            }
+        return listaIds;
+        }
+
+    public static void atualizarStatus(Connection conn, int pedidoId, String novoStatus) throws SQLException {
+        String sql = "UPDATE pedidos SET status = ? WHERE id = ?";
+        
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, novoStatus);
+            stmt.setInt(2, pedidoId);
+            stmt.executeUpdate();
         }
     }
 }
