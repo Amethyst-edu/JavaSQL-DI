@@ -34,7 +34,7 @@ public class Main {
     public static void registro(Scanner scanner, boolean usingdb) {
         boolean on = true;
         while (on) {
-            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Ver lista de clientes\n3 - Adicionar produto\n4 - Ver todos os produtos\n5 - Novo pedido\n6 - Ver histórico de pedidos\n>> ");
+            System.out.print("\nSelecione a opção desejada:\n0 - Fechar programa\n1 - Cadastrar cliente\n2 - Ver lista de clientes\n3 - Adicionar produto\n4 - Ver todos os produtos\n5 - Novo pedido\n>> ");
             int opcao = scanner.nextInt();
             scanner.nextLine(); 
             switch (opcao) {
@@ -74,13 +74,7 @@ public class Main {
                         //PedidoLocal.PedidoCad(scanner);
                     }
                 }
-                case 6 -> {
-                    if (usingdb) {
-                        //PedidoDAO.PedidoCheck(scanner);
-                    } else {
-                        //PedidoLocal.PedidoCheck(scanner);
-                    }
-                }
+                // classe que mostra histórico de pedidos cancelada
                 default -> System.out.println("Opção inválida. Tente novamente.");
             }
            
