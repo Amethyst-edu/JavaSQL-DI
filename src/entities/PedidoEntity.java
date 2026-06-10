@@ -5,39 +5,46 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class PedidoEntity {
-    public enum StatusEnum {
-        ABERTO,
-        FILA,
-        PROCESSANDO,
-        FINALIZADO
-    }
-
     private final int id;
     private final int clienteId;
-    private final Timestamp dataPedido; 
-    private StatusEnum status;
-    private final List<ItemPedidoEntity> itens;
+    private final Timestamp data_Pedido;
 
-    public PedidoEntity(int id, int clienteId, Timestamp dataPedido, StatusEnum status) {
+    public enum Status {
+        ABERTO, FILA, PROCESSANDO, FINALIZADO
+    }
+    private Status status;
+    private final List<ItemEntity> itens;
+
+    public PedidoEntity(int id, int clienteId, Timestamp data_Pedido) {
         this.id = id;
         this.clienteId = clienteId;
-        this.dataPedido = dataPedido;
-        this.status = status;
+        this.data_Pedido = data_Pedido;
+        this.status = Status.ABERTO; 
         this.itens = new ArrayList<>();
     }
 
-    public int getId() { return id; }
-    public int getClienteId() { return clienteId; }
-    public Timestamp getDataPedido() { return dataPedido; }
-    public StatusEnum getStatus() { return status; }
-    public List<ItemPedidoEntity> getItens() { return itens; }
-
-    public void setStatus(StatusEnum status) {
-        this.status = status;
+    public int getId() {
+        return id;
+    }
+    public int getClienteId() {
+        return clienteId;
+    }
+    public Timestamp getData_Pedido() {
+        return data_Pedido;
+    }
+    public Status getStatus() {
+        return status;
+    }
+    public List<ItemEntity> getItens() {
+        return itens;
     }
 
-    public void addItem(ItemPedidoEntity item) {
-        this.itens.add(item);
+    public void addItem(ItemEntity item) {
+        itens.add(item);
+    }
+
+    public void nextStatus(Status status) {
+        this.status = status;
     }
     
 }

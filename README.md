@@ -1,3 +1,5 @@
+#### ⚠️ Você está na branch "amethyst", onde possui o código em desenvolvimento e commits feitos após a data de entrega do projeto (commit com o prefixo `Late:`). Para acessar a versão entregue para a correção, [vá para a branch main](https://github.com/Amethyst-edu/JavaSQL-DI/tree/main), que possui o projeto que deve ser corrigido.
+
 # Instruções de Compilação, Configuração e Execução
 
 ### 1. Configuração do Banco de Dados Local (XAMPP)
