@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ProdutoDAO {
     public static void ProdutoCad(Scanner scanner) {
-    System.out.print("/nNome do Produto: ");
+    System.out.print("\nNome do Produto: ");
         String nome = scanner.nextLine();
 
         System.out.print("Preço: ");
@@ -41,7 +41,7 @@ public class ProdutoDAO {
             return;
         }
 
-        String insert = "INSERT INTO produtos (nome, preco, em_estoque, categoria) VALUES (?, ?, ?, ?)";
+        String insert = "INSERT INTO produtos (nome, preco, quantidade_estoque, categoria) VALUES (?, ?, ?, ?)";
         try (Connection conn = Conexao.getConn();
              PreparedStatement stmt = conn.prepareStatement(insert)) {
             stmt.setString(1, nome);
